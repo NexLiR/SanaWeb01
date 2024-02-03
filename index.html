@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Questionnaire</title>
+    <style>
+        form {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 10px;
+        }
+        fieldset {
+            border: 1px solid;
+            border-radius: 10px;
+            margin: 10px;
+            width: 600px;
+        }
+        legend {
+            font-weight: bold;
+            font-size: 120%;
+            margin-left: 50px;
+        }
+        label {
+            display: flex;
+            margin: 1px 15px;
+        }
+        input[type="email"], input[type="text"], input[type="number"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 6px;
+            margin: 6px 0;
+            box-sizing: border-box;
+            border: 1px solid;
+            border-radius: 5px;
+        }
+        input[type="color"] {
+            width: 20%;
+        }
+        input[type="file"] {
+            width: 35%;
+            padding: 6px;
+            margin: 6px 0;
+            box-sizing: border-box;
+            border: 1px solid;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            border: 3px solid;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        input[id="recomendation"]
+        {
+            width: 100%;
+            padding: 6px;
+            margin: 6px 0;
+            box-sizing: border-box;
+            border: 1px solid;
+            border-radius: 5px;
+        }
+        progress,
+        meter {
+            width: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Дані відвідувача ресторану</legend>
+            <label>Електронна пошта</label>
+            <input type="email" name="user_email" autocomplete="off" placeholder="example@mail.domen" required>
+            <label>Номер телефону</label>
+            <input type="text" name="user_phone_numebr" value="" pattern="(\d{3}-?\d{3}-?\d{2}-?\d{2})" placeholder="000-000-00-00" required>
+        </fieldset>
+        <fieldset>
+            <legend>Відвіданий ресторан</legend>
+            <label>Місто</label>
+            <select id="city" name="city" required>
+                <option value="" disabled selected>Виберіть місто</option>
+                <option value="kyiv">Київ</option>
+                <option value="zhytomyr">Житомир</option>
+                <option value="sumy">Суми</option>
+                <option value="lviv">Львів</option>
+                <option value="kharkiv">Харків</option>
+                <option value="odessa">Одеса</option>
+                <option value="dnipro">Дніпро</option>
+            </select>
+            <label>Ресторан</label>
+            <select id="restaurants" name="restaurants" required>
+                <option value="" disabled selected>Виберіть ресторан</option>
+                <optgroup label="Бар-ресторани">
+                    <option value="pani_vushnya">Пані вишня</option>
+                    <option value="Velikiy_dvir">Великий двір</option>
+                </optgroup>
+                <optgroup label="Сімейні ресторани">
+                    <option value="smachna_hata">Смачна хата</option>
+                    <option value="kozacka_kuhnya">Козацька кухня</option>
+                    <option value="dniprovskiy_dim">Дніпровський дім</option>
+                </optgroup>
+            </select>
+            <label>Скільки разів відвідав</label>
+            <input type="number" name="times_visited" placeholder="Відвідано разів">
+            <label>Коли відвідували?</label>
+            <input type="date" name="date_of_visit" value="" placeholder="Виберіть дату">
+            <label>Вкажіть колір фірмового напою ресторану</label>
+            <input type="color" name="color_of" value="" placeholder="Виберіть колір">
+        </fieldset>
+        <fieldset>
+            <legend>Оцінка ресторану</legend>
+            <label>0 <input type="range" name="mark" min="0" max="10" style="width: 530px" placeholder="Оцініть ресторан" required>10</label>
+            <label>Напишіть відгук (необов'язково)</label>
+            <textarea rows="5" cols="70" name="review" spellcheck="false" placeholder="Напишіть відгук"></textarea>
+            <label>Завантажте файл з розгорнутим відгуком (необов'язково)</label>
+            <input type="file" name="review_files" multiple placeholder="Завантажте файл">
+            <label>Рекомендація щодо відвідування:</label>
+            <input type="text" id="recomendation" list="recomendationSelector" placeholder="Виберіть рекомендацію" name="selectedRecomendation" style="width: 175px">
+            <datalist id="recomendationSelector">
+                <option value="Варто відвідати">
+                <option value="Дуже рекомендую">
+                <option value="Нормально">
+                <option value="Не рекомендую">
+                <option value="Не варто відвідувати">
+            </datalist>
+        </fieldset>
+        <input type="submit" value="Відправити відгук" placeholder="Відправити відгук">
+    </form>
+    <div class="progress_and_meter">
+        <progress value="1" max="10"></progress><br>
+        <meter value="3" max="10"></meter>
+    </div>
+</body>
+</html>
