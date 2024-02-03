@@ -65,6 +65,15 @@
             margin: 0 auto;
             display: block;
         }
+        div.progress-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        label.progress-label {
+            display: block;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -128,8 +137,10 @@
         </fieldset>
         <input type="submit" value="Відправити відгук" placeholder="Відправити відгук">
     </form>
-    <div class="progress_and_meter">
+    <div class="progress-container">
+        <label class="progress-label">Progress bar</label>
         <progress value="1" max="10"></progress><br>
+        <label class="progress-label">Progress meter</label>
         <meter value="3" max="10"></meter>
     </div>
 </body>
